@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowUpRight, Zap } from "lucide-react";
+import { PremiumButtonWrapper } from "./Effects";
 
 interface HeaderProps {
   onScrollTo: (elementId: string) => void;
@@ -102,18 +103,20 @@ export default function Header({ onScrollTo, activeSection }: HeaderProps) {
 
           {/* Desktop Call to Action */}
           <div className="hidden md:flex items-center space-x-6">
-            <button
-              id="cta-nav-button"
-              onClick={() => handleNavClick("contact")}
-              className="relative px-6 py-2.5 rounded-xl text-[11px] font-display font-bold uppercase tracking-wider text-white overflow-hidden group cursor-pointer transition-all duration-300 ring-1 ring-[#00E5FF]/40 hover:ring-[#00E5FF] hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] active:scale-95"
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] transition-transform duration-350 group-hover:scale-105"></span>
-              <span className="relative flex items-center justify-center space-x-1.5 text-black font-extrabold">
-                <Zap className="w-3.5 h-3.5 text-black" />
-                <span>Get Started Now</span>
-                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </span>
-            </button>
+            <PremiumButtonWrapper>
+              <button
+                id="cta-nav-button"
+                onClick={() => handleNavClick("contact")}
+                className="relative px-6 py-2.5 rounded-xl text-[11px] font-display font-bold uppercase tracking-wider text-white overflow-hidden group cursor-pointer transition-all duration-300 ring-1 ring-[#00E5FF]/40 hover:ring-[#00E5FF]"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] transition-transform duration-350"></span>
+                <span className="relative flex items-center justify-center space-x-1.5 text-black font-extrabold text-xs">
+                  <Zap className="w-3.5 h-3.5 text-black" />
+                  <span>Get Started Now</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
+              </button>
+            </PremiumButtonWrapper>
           </div>
 
           {/* Mobile Menu Actions Button */}
@@ -164,15 +167,17 @@ export default function Header({ onScrollTo, activeSection }: HeaderProps) {
 
           {/* Mobile Drawer Footer CTA Actions */}
           <div className="flex flex-col space-y-4">
-            <button
-              id="mobile-drawer-ai-cta"
-              onClick={() => handleNavClick("contact")}
-              className="w-full flex items-center justify-center space-x-2 py-3.5 px-5 bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] rounded-xl text-xs font-black uppercase tracking-wider text-black active:scale-[0.98] transition-all shadow-[0_0_15px_rgba(0,229,255,0.3)]"
-            >
-              <Zap className="w-4 h-4 text-black" />
-              <span>Get Free Quote</span>
-              <ArrowUpRight className="w-4 h-4 text-black" />
-            </button>
+            <PremiumButtonWrapper className="w-full">
+              <button
+                id="mobile-drawer-ai-cta"
+                onClick={() => handleNavClick("contact")}
+                className="w-full flex items-center justify-center space-x-2 py-3.5 px-5 bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] rounded-xl text-xs font-black uppercase tracking-wider text-black transition-all"
+              >
+                <Zap className="w-4 h-4 text-black" />
+                <span>Get Free Quote</span>
+                <ArrowUpRight className="w-4 h-4 text-black" />
+              </button>
+            </PremiumButtonWrapper>
             
             <div className="text-center font-mono">
               <span className="text-[9px] text-[#AAB4C8] uppercase tracking-widest">

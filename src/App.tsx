@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   ArrowRight,
+  ArrowUpRight,
   Check,
   Phone,
   Mail,
@@ -31,6 +32,9 @@ import {
 import Header from "./components/Header";
 import { SERVICES, PRICING, PORTFOLIO, TESTIMONIALS, PROCESS_STEPS } from "./data";
 import { motion, AnimatePresence } from "motion/react";
+import { Magnetic, PremiumCard, PremiumButtonWrapper } from "./components/Effects";
+import { InteractiveName } from "./components/InteractiveName";
+import { ProfilePhoto } from "./components/ProfilePhoto";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("home");
@@ -229,22 +233,26 @@ export default function App() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
-                      <button
-                        id="hero-primary-cta"
-                        onClick={() => handleScrollTo("contact")}
-                        className="group relative bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] text-black font-display font-black px-8 py-4 rounded-xl text-center tracking-wider hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center space-x-2 text-xs"
-                      >
-                        <span>GET MY WEBSITE</span>
-                        <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-                      </button>
+                      <PremiumButtonWrapper>
+                        <button
+                          id="hero-primary-cta"
+                          onClick={() => handleScrollTo("contact")}
+                          className="group relative bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] text-black font-display font-black px-8 py-4 rounded-xl text-center tracking-wider transition-all duration-300 cursor-pointer flex items-center justify-center space-x-2 text-xs"
+                        >
+                          <span>GET MY WEBSITE</span>
+                          <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+                        </button>
+                      </PremiumButtonWrapper>
 
-                      <button
-                        id="hero-secondary-cta"
-                        onClick={() => handleScrollTo("portfolio")}
-                        className="bg-[#0B1220] hover:bg-white/5 border border-white/10 text-white px-8 py-4 rounded-xl font-semibold tracking-wider text-center transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer flex items-center justify-center space-x-2.5 text-xs hover:border-[#00E5FF]/40"
-                      >
-                        <span>VIEW PORTFOLIO</span>
-                      </button>
+                      <PremiumButtonWrapper>
+                        <button
+                          id="hero-secondary-cta"
+                          onClick={() => handleScrollTo("portfolio")}
+                          className="bg-[#0B1220] hover:bg-white/5 border border-white/10 text-white px-8 py-4 rounded-xl font-semibold tracking-wider text-center transition-all duration-300 cursor-pointer flex items-center justify-center space-x-2.5 text-xs hover:border-[#00E5FF]/40"
+                        >
+                          <span>VIEW PORTFOLIO</span>
+                        </button>
+                      </PremiumButtonWrapper>
                     </div>
 
                     {/* Quick Trust Strip */}
@@ -446,16 +454,20 @@ export default function App() {
 
                   <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
                     {PROCESS_STEPS.map((step, idx) => (
-                      <div key={idx} className="bg-[#111827] p-5 rounded-xl border border-white/5 text-left flex flex-col justify-between space-y-4">
-                        <div>
-                          <div className="flex justify-between items-center mb-2">
-                            <span className="text-3xl font-black text-[#00E5FF] font-mono">{step.step}</span>
-                            <span className="text-[8px] font-mono bg-white/5 text-white/50 px-1.5 py-0.5 rounded border border-white/10 uppercase font-bold">Phase</span>
+                      <Magnetic key={idx} strength={0.06} className="h-full">
+                        <PremiumCard id={`process-card-${idx}`} className="h-full">
+                          <div className="p-5 text-left flex flex-col h-full justify-between space-y-4 bg-transparent">
+                            <div>
+                              <div className="flex justify-between items-center mb-2">
+                                <span className="text-3xl font-black text-[#00E5FF] font-mono transition-all duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.85)]">{step.step}</span>
+                                <span className="text-[8px] font-mono bg-white/5 text-white/50 px-1.5 py-0.5 rounded border border-white/10 uppercase font-bold">Phase</span>
+                              </div>
+                              <h4 className="text-xs font-bold text-white tracking-wide">{step.title}</h4>
+                            </div>
+                            <p className="text-[11px] text-[#AAB4C8] leading-relaxed">{step.description}</p>
                           </div>
-                          <h4 className="text-xs font-bold text-white tracking-wide">{step.title}</h4>
-                        </div>
-                        <p className="text-[11px] text-[#AAB4C8] leading-relaxed">{step.description}</p>
-                      </div>
+                        </PremiumCard>
+                      </Magnetic>
                     ))}
                   </div>
                 </div>
@@ -487,45 +499,49 @@ export default function App() {
                 {/* Grid Catalog */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {SERVICES.map((srv) => (
-                    <div
-                      key={srv.id}
-                      id={`srv-card-${srv.id}`}
-                      className="group relative bg-[#111827] border border-white/5 hover:border-[#00E5FF]/45 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_25px_rgba(0,229,255,0.06)] flex flex-col justify-between"
-                    >
-                      <div>
-                        {/* Upper row */}
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="p-3 bg-[#050816] text-[#00E5FF] rounded-xl border border-white/5 group-hover:bg-[#00E5FF]/10 transition-colors">
-                            {renderIcon(srv.iconName, "w-5 h-5")}
-                          </div>
-                          <span className="text-[8px] font-mono text-[#AAB4C8] uppercase tracking-widest bg-white/5 px-2 py-0.5 rounded border border-white/10">Bespoke</span>
-                        </div>
-
-                        <h3 className="text-base font-bold text-white group-hover:text-[#00E5FF] transition-colors mb-3">
-                          {srv.title}
-                        </h3>
-
-                        <p className="text-xs text-[#AAB4C8] leading-relaxed mb-6">
-                          {srv.description}
-                        </p>
-
-                        <div className="space-y-2 mb-6">
-                          {srv.features.map((feat, fidx) => (
-                            <div key={fidx} className="flex items-center space-x-2 text-[10px] text-[#AAB4C8]">
-                              <Check className="w-3 h-3 text-[#00E5FF] shrink-0" />
-                              <span className="truncate">{feat}</span>
+                    <Magnetic key={srv.id} strength={0.06} className="h-full">
+                      <PremiumCard id={`srv-card-${srv.id}`} className="h-full" liftAmount="-translate-y-2">
+                        <div className="p-6 flex flex-col justify-between h-full bg-transparent">
+                          <div>
+                            {/* Upper row */}
+                            <div className="flex items-center justify-between mb-4">
+                              <div className="p-3 bg-[#050816] text-[#00E5FF] rounded-xl border border-white/5 group-hover:bg-[#00E5FF]/10 transition-colors">
+                                {renderIcon(srv.iconName, "w-5 h-5")}
+                              </div>
+                              <span className="text-[8px] font-mono text-[#AAB4C8] uppercase tracking-widest bg-white/5 px-2 py-0.5 rounded border border-white/10">Bespoke</span>
                             </div>
-                          ))}
-                        </div>
-                      </div>
 
-                      <button
-                        onClick={() => triggerInquiry(srv.title)}
-                        className="w-full py-2.5 bg-white/5 hover:bg-gradient-to-r hover:from-[#00E5FF] hover:to-[#7C3AED] hover:text-black rounded-xl text-[10px] font-semibold text-white transition-all uppercase tracking-wider block text-center"
-                      >
-                        Inquire About This Service
-                      </button>
-                    </div>
+                            <h3 className="text-base font-bold text-white group-hover:text-[#00E5FF] transition-colors mb-3">
+                              {srv.title}
+                            </h3>
+
+                            <p className="text-xs text-[#AAB4C8] leading-relaxed mb-6">
+                              {srv.description}
+                            </p>
+
+                            <div className="space-y-2 mb-6">
+                              {srv.features.map((feat, fidx) => (
+                                <div key={fidx} className="flex items-center space-x-2 text-[10px] text-[#AAB4C8]">
+                                  <Check className="w-3 h-3 text-[#00E5FF] shrink-0" />
+                                  <span className="truncate">{feat}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div className="pt-4">
+                            <PremiumButtonWrapper className="w-full">
+                              <button
+                                onClick={() => triggerInquiry(srv.title)}
+                                className="w-full py-2.5 bg-white/5 hover:bg-gradient-to-r hover:from-[#00E5FF] hover:to-[#7C3AED] hover:text-black rounded-xl text-[10px] font-semibold text-white transition-all uppercase tracking-wider block text-center cursor-pointer"
+                              >
+                                Inquire About This Service
+                              </button>
+                            </PremiumButtonWrapper>
+                          </div>
+                        </div>
+                      </PremiumCard>
+                    </Magnetic>
                   ))}
                 </div>
 
@@ -540,12 +556,14 @@ export default function App() {
                       <p className="text-xs text-[#AAB4C8]">We architect custom shopping carts, scheduling tools, local search tags, and responsive lead sheets.</p>
                     </div>
                   </div>
-                  <button
-                    onClick={() => handleScrollTo("contact")}
-                    className="shrink-0 scale-95 hover:scale-100 bg-[#111827] text-white border border-white/10 hover:border-[#00E5FF]/40 text-xs px-6 py-3 rounded-xl transition-all uppercase font-semibold"
-                  >
-                    Discuss Tech Stack
-                  </button>
+                  <PremiumButtonWrapper>
+                    <button
+                      onClick={() => handleScrollTo("contact")}
+                      className="shrink-0 bg-[#111827] text-white border border-white/10 hover:border-[#00E5FF]/40 text-xs px-6 py-3 rounded-xl transition-all uppercase font-semibold cursor-pointer"
+                    >
+                      Discuss Tech Stack
+                    </button>
+                  </PremiumButtonWrapper>
                 </div>
 
               </section>
@@ -573,57 +591,63 @@ export default function App() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto pt-4">
                   {PRICING.map((plan) => (
-                    <div
-                      key={plan.id}
-                      id={`pricing-card-${plan.id}`}
-                      className={`relative bg-[#111827] rounded-[24px] p-8 flex flex-col justify-between transition-all duration-300 ${
-                        plan.popular
-                          ? "border-2 border-[#00E5FF] shadow-[0_0_30px_rgba(0,229,255,0.1)] transform md:-translate-y-4"
-                          : "border border-white/5 hover:border-white/15"
-                      }`}
-                    >
-                      {plan.popular && (
-                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] text-black font-display font-black text-[9px] uppercase tracking-wider px-4 py-1.5 rounded-full select-none">
-                          MOST POPULAR
-                        </div>
-                      )}
+                    <Magnetic key={plan.id} strength={0.05} className="h-full">
+                      <PremiumCard
+                        id={`pricing-card-${plan.id}`}
+                        shouldScale={true}
+                        liftAmount={plan.popular ? "md:-translate-y-6 -translate-y-2" : "-translate-y-2"}
+                        className={`h-full ${
+                          plan.popular
+                            ? "ring-2 ring-[#00E5FF]/60 shadow-[0_0_30px_rgba(0,229,255,0.1)] md:-translate-y-4"
+                            : ""
+                        }`}
+                      >
+                        <div className="p-8 flex flex-col justify-between h-full bg-transparent relative">
+                          {plan.popular && (
+                            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] text-black font-display font-black text-[9px] uppercase tracking-wider px-4 py-1.5 rounded-full select-none z-10">
+                              MOST POPULAR
+                            </div>
+                          )}
 
-                      <div className="space-y-6">
-                        <div>
-                          <span className="text-[10px] font-mono text-[#AAB4C8] uppercase tracking-widest">{plan.name}</span>
-                          <div className="flex items-baseline mt-2">
-                            <span className="text-4xl font-display font-black text-white">{plan.price}</span>
-                            <span className="text-[10px] font-mono text-[#AAB4C8] ml-2">/ complete project</span>
+                          <div className="space-y-6">
+                            <div className="pt-2">
+                              <span className="text-[10px] font-mono text-[#AAB4C8] uppercase tracking-widest">{plan.name}</span>
+                              <div className="flex items-baseline mt-2">
+                                <span className="text-4xl font-display font-black text-white">{plan.price}</span>
+                                <span className="text-[10px] font-mono text-[#AAB4C8] ml-2">/ complete project</span>
+                              </div>
+                            </div>
+
+                            <hr className="border-white/5" />
+
+                            <ul className="space-y-3.5">
+                              {plan.features.map((feat, fidx) => (
+                                <li key={fidx} className="flex items-start space-x-3 text-xs text-white/90 text-left">
+                                  <span className="w-4 h-4 rounded-full bg-[#00E5FF]/10 text-[#00E5FF] flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">✓</span>
+                                  <span className="leading-tight">{feat}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          <div className="pt-8 mt-8 border-t border-white/5">
+                            <PremiumButtonWrapper className="w-full">
+                              <button
+                                id={`choose-plan-btn-${plan.id}`}
+                                onClick={() => triggerInquiry(plan.name, plan.price)}
+                                className={`w-full py-3.5 rounded-xl text-center text-xs font-bold uppercase tracking-wider cursor-pointer ${
+                                  plan.popular
+                                    ? "bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] text-black font-black"
+                                    : "bg-white/5 text-white border border-white/10"
+                                }`}
+                              >
+                                Get Started
+                              </button>
+                            </PremiumButtonWrapper>
                           </div>
                         </div>
-
-                        <hr className="border-white/5" />
-
-                        <ul className="space-y-3.5">
-                          {plan.features.map((feat, fidx) => (
-                            <li key={fidx} className="flex items-start space-x-3 text-xs text-white/90 text-left">
-                              <span className="w-4 h-4 rounded-full bg-[#00E5FF]/10 text-[#00E5FF] flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">✓</span>
-                              <span className="leading-tight">{feat}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div className="pt-8 mt-8 border-t border-white/5">
-                        <button
-                          id={`choose-plan-btn-${plan.id}`}
-                          onClick={() => triggerInquiry(plan.name, plan.price)}
-                          className={`w-full py-3.5 rounded-xl text-center text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                            plan.popular
-                              ? "bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] text-black font-black hover:shadow-[0_4px_15px_rgba(0,229,255,0.3)] hover:scale-[1.01]"
-                              : "bg-white/5 hover:bg-white/10 text-white border border-white/10"
-                          }`}
-                        >
-                          Get Started
-                        </button>
-                      </div>
-
-                    </div>
+                      </PremiumCard>
+                    </Magnetic>
                   ))}
                 </div>
 
@@ -670,59 +694,63 @@ export default function App() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {PORTFOLIO.map((proj) => (
-                    <div
-                      key={proj.id}
-                      id={`portfolio-${proj.id}`}
-                      className="group bg-[#111827] rounded-2xl border border-white/5 hover:border-white/10 overflow-hidden transition-all flex flex-col justify-between"
-                    >
-                      <div className="relative h-56 overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                        <div className={`absolute inset-0 bg-gradient-to-r ${proj.gradient} opacity-15 group-hover:opacity-30 transition-all z-0`}></div>
-                        
-                        <img
-                          src={proj.mockupUrl}
-                          alt={proj.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                        />
+                    <Magnetic key={proj.id} strength={0.06} className="h-full">
+                      <PremiumCard id={`portfolio-${proj.id}`} className="h-full" liftAmount="-translate-y-2">
+                        <div className="flex flex-col justify-between h-full bg-transparent">
+                          <div className="relative h-56 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                            <div className={`absolute inset-0 bg-gradient-to-r ${proj.gradient} opacity-15 group-hover:opacity-30 transition-all z-0`}></div>
+                            
+                            <img
+                              src={proj.mockupUrl}
+                              alt={proj.title}
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              loading="lazy"
+                              referrerPolicy="no-referrer"
+                            />
 
-                        {/* Category tag */}
-                        <span className="absolute top-4 left-4 bg-[#050816]/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 text-[9px] font-mono text-white uppercase tracking-wider z-20">
-                          {proj.category}
-                        </span>
-
-                        {/* Outcomes */}
-                        <div className="absolute bottom-4 left-4 z-20 text-left">
-                          <span className="text-[8px] font-mono tracking-widest text-[#00E5FF] bg-[#00E5FF]/10 px-2.5 py-0.5 rounded border border-[#00E5FF]/20 uppercase">Vitals Metric</span>
-                          <p className="text-sm font-bold text-white mt-1.5">{proj.metrics}</p>
-                        </div>
-                      </div>
-
-                      <div className="p-6 text-left">
-                        <h3 className="text-lg font-bold text-white group-hover:text-[#00E5FF] transition-colors mb-3">
-                          {proj.title}
-                        </h3>
-
-                        {/* Tech pills */}
-                        <div className="flex flex-wrap gap-1.5 mb-6">
-                          {proj.tech.map((tool, idx) => (
-                            <span key={idx} className="text-[9px] font-mono bg-[#050816]/80 text-[#AAB4C8] border border-white/5 px-2 py-0.5 rounded">
-                              {tool}
+                            {/* Category tag */}
+                            <span className="absolute top-4 left-4 bg-[#050816]/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 text-[9px] font-mono text-white uppercase tracking-wider z-20">
+                              {proj.category}
                             </span>
-                          ))}
+
+                            {/* Outcomes */}
+                            <div className="absolute bottom-4 left-4 z-20 text-left">
+                              <span className="text-[8px] font-mono tracking-widest text-[#00E5FF] bg-[#00E5FF]/10 px-2.5 py-0.5 rounded border border-[#00E5FF]/20 uppercase">Vitals Metric</span>
+                              <p className="text-sm font-bold text-white mt-1.5">{proj.metrics}</p>
+                            </div>
+                          </div>
+
+                          <div className="p-6 text-left flex-grow flex flex-col justify-between">
+                            <div>
+                              <h3 className="text-lg font-bold text-white group-hover:text-[#00E5FF] transition-colors mb-3">
+                                {proj.title}
+                              </h3>
+
+                              {/* Tech pills */}
+                              <div className="flex flex-wrap gap-1.5 mb-6">
+                                {proj.tech.map((tool, idx) => (
+                                  <span key={idx} className="text-[9px] font-mono bg-[#050816]/80 text-[#AAB4C8] border border-white/5 px-2 py-0.5 rounded">
+                                    {tool}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* Interactive Preview Action Button */}
+                            <PremiumButtonWrapper className="w-full">
+                              <button
+                                onClick={() => setActivePreviewId(proj.id)}
+                                className="w-full py-3 bg-[#050816] text-[#00E5FF] text-xs font-bold rounded-xl flex items-center justify-center space-x-2 cursor-pointer uppercase tracking-wider"
+                              >
+                                <Zap className="w-3.5 h-3.5 animate-pulse" />
+                                <span>Run Live Preview</span>
+                              </button>
+                            </PremiumButtonWrapper>
+                          </div>
                         </div>
-
-                        {/* Interactive Preview Action Button */}
-                        <button
-                          onClick={() => setActivePreviewId(proj.id)}
-                          className="w-full py-3 bg-[#050816] hover:bg-[#00E5FF] text-[#00E5FF] hover:text-black hover:shadow-[0_0_15px_rgba(0,229,255,0.25)] border border-[#00E5FF]/30 transition-all text-xs font-bold rounded-xl flex items-center justify-center space-x-2 cursor-pointer uppercase tracking-wider"
-                        >
-                          <Zap className="w-3.5 h-3.5 animate-pulse" />
-                          <span>Run Live Preview</span>
-                        </button>
-                      </div>
-
-                    </div>
+                      </PremiumCard>
+                    </Magnetic>
                   ))}
                 </div>
 
@@ -810,22 +838,17 @@ export default function App() {
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     
-                    {/* Visual representative frame */}
-                    <div className="lg:col-span-4 flex flex-col items-center text-center">
-                      <div className="relative inline-block mb-4">
-                        <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-tr from-[#00E5FF] to-[#7C3AED] p-[3px] shadow-[0_0_30px_rgba(0,229,255,0.25)]">
-                          <div className="w-full h-full bg-[#050816] rounded-[13px] flex items-center justify-center font-display font-black text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] select-none">
-                            LV
-                          </div>
-                        </div>
-                        <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] text-black text-[8px] font-mono font-bold tracking-wider px-2.5 py-1 rounded-md shadow-lg uppercase">
-                          Lead Architect
-                        </div>
-                      </div>
+                    {/* Visual representative frame with interactive ProfilePhoto */}
+                    <div className="lg:col-span-4 flex flex-col items-center text-center space-y-4">
+                      <ProfilePhoto />
                       
-                      <h3 className="text-lg font-bold text-white tracking-wide">Lakshay Verma</h3>
-                      <p className="text-[10px] text-[#AAB4C8] font-mono mt-0.5">SOFTWARE DEVELOPER &amp; FOUNDER</p>
-                      <p className="text-[9px] text-[#D4AF37] font-mono mt-0.5 font-bold uppercase tracking-[0.1em]">Rewari, India</p>
+                      <div className="flex flex-col items-center justify-center">
+                        <h3 className="text-lg font-bold text-white tracking-wide flex items-center justify-center">
+                          <InteractiveName />
+                        </h3>
+                        <p className="text-[10px] text-[#AAB4C8] font-mono mt-2 uppercase tracking-widest text-[#AAB4C8]">SOFTWARE DEVELOPER &amp; FOUNDER</p>
+                        <p className="text-[9px] text-[#D4AF37] font-mono mt-1 font-bold uppercase tracking-[0.15em]">Rewari, India</p>
+                      </div>
                     </div>
 
                     {/* Story Copy */}
@@ -857,9 +880,7 @@ export default function App() {
 
               </section>
             </div>
-          )}
-
-          {/* ========================================================== */}
+          )}          {/* ========================================================== */}
           {/* 6. CONTACT VIEW */}
           {/* ========================================================== */}
           {activeSection === "contact" && (
@@ -869,40 +890,51 @@ export default function App() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 text-left items-stretch">
                   
                   {/* Info Sidebar */}
-                  <div className="lg:col-span-5 flex flex-col justify-between">
+                  <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
                     <div className="space-y-6">
                       <span className="text-[#00E5FF] text-xs font-mono font-bold tracking-[0.25em] uppercase">
                         CONNECT WITH US
                       </span>
                       <h2 className="text-3xl sm:text-4xl font-display font-black text-white">
-                        Let's Build Your Website
+                        Get Your Website Today
                       </h2>
                       <p className="text-sm text-[#AAB4C8] leading-relaxed">
-                        Have questions about layout styles, responsive timelines, or asset configurations? Share your details to request a free strategic review, or reach out directly to our Rewari office on WhatsApp below.
+                        Tell us about your project and we'll get back to you with the best solution for your business.
                       </p>
 
                       <div className="space-y-3 pt-4">
-                        <div className="flex items-center space-x-3.5 p-4 bg-[#111827] rounded-xl border border-white/5">
-                          <Phone className="w-5 h-5 text-[#00E5FF] shrink-0" />
+                        {/* WhatsApp Card */}
+                        <a
+                          href="https://wa.me/919350898919"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-center space-x-4 p-5 bg-[#111827] hover:bg-[#111827]/80 hover:border-[#00E5FF]/30 transition-all rounded-xl border border-white/5 group duration-300"
+                        >
+                          <Phone className="w-5 h-5 text-[#00E5FF] shrink-0 group-hover:scale-110 transition-transform" />
                           <div>
-                            <span className="text-[10px] text-[#AAB4C8] font-mono uppercase">Call or Chat</span>
-                            <p className="text-xs font-bold text-white">+91 93508 98919</p>
+                            <span className="text-[10px] text-[#AAB4C8] font-mono uppercase block">WhatsApp</span>
+                            <p className="text-sm font-bold text-white group-hover:text-[#00E5FF] transition-colors">9350898919</p>
                           </div>
-                        </div>
+                        </a>
 
-                        <div className="flex items-center space-x-3.5 p-4 bg-[#111827] rounded-xl border border-white/5">
-                          <Mail className="w-5 h-5 text-purple-400 shrink-0" />
+                        {/* Email Card */}
+                        <a
+                          href="mailto:lavyzostore@gmail.com"
+                          className="flex items-center space-x-4 p-5 bg-[#111827] hover:bg-[#111827]/80 hover:border-purple-500/30 transition-all rounded-xl border border-white/5 group duration-300"
+                        >
+                          <Mail className="w-5 h-5 text-purple-400 shrink-0 group-hover:scale-110 transition-transform" />
                           <div>
-                            <span className="text-[10px] text-[#AAB4C8] font-mono uppercase">Direct Inbox</span>
-                            <p className="text-xs font-bold text-white">lavyzostore@gmail.com</p>
+                            <span className="text-[10px] text-[#AAB4C8] font-mono uppercase block">Email</span>
+                            <p className="text-sm font-bold text-white group-hover:text-purple-400 transition-colors">lavyzostore@gmail.com</p>
                           </div>
-                        </div>
+                        </a>
 
-                        <div className="flex items-center space-x-3.5 p-4 bg-[#111827] rounded-xl border border-white/5">
+                        {/* Local Office Card */}
+                        <div className="flex items-center space-x-4 p-5 bg-[#111827] rounded-xl border border-white/5">
                           <User className="w-5 h-5 text-amber-500 shrink-0" />
                           <div>
                             <span className="text-[10px] text-[#AAB4C8] font-mono uppercase">Local Office Lead</span>
-                            <p className="text-xs font-bold text-white">Rewari, Haryana, India</p>
+                            <p className="text-sm font-bold text-white">Rewari, Haryana, India</p>
                           </div>
                         </div>
                       </div>
@@ -913,11 +945,11 @@ export default function App() {
                       <div className="p-6 bg-gradient-to-r from-emerald-600/10 to-teal-600/10 rounded-2xl border border-emerald-500/25 flex flex-col sm:flex-row items-center justify-between gap-4">
                         <div>
                           <h4 className="text-xs font-bold text-emerald-400">Prefer Instant Chat?</h4>
-                          <p className="text-[11px] text-[#AAB4C8]">Submit your brief details directly to open direct WhatsApp conversation.</p>
+                          <p className="text-[11px] text-[#AAB4C8]">Drop us a direct message on WhatsApp to initiate dynamic alignment.</p>
                         </div>
                         <a
                           id="contact-whatsapp-primary"
-                          href="https://wa.me/9350898919?text=Hi%20WEBZSTUDIO!%20Interested%20in%20launching%20a%20premium%20website%20scale.%20Let's%20discuss!"
+                          href="https://wa.me/919350898919?text=Hi%20WEBZSTUDIO!%20Interested%20in%20launching%20a%20premium%20website%20scale.%20Let's%20discuss!"
                           target="_blank"
                           rel="noreferrer"
                           className="shrink-0 bg-emerald-500 hover:bg-emerald-600 text-black font-bold px-4 py-2.5 rounded-xl text-xs transition duration-200 cursor-pointer uppercase tracking-wider"
@@ -928,166 +960,47 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Form Terminal */}
-                  <div className="lg:col-span-7 bg-[#111827] rounded-3xl border border-white/5 p-6 md:p-8 relative">
-                    
-                    {formSuccess ? (
-                      <div className="space-y-6 text-center py-6">
-                        <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
-                          <CheckCircle className="w-8 h-8" />
-                        </div>
-                        <div className="space-y-2">
-                          <h3 className="text-xl font-bold text-white">Inquiry Registered Successfully!</h3>
-                          <p className="text-xs text-[#AAB4C8] max-w-md mx-auto leading-relaxed">
-                            Thank you, <span className="text-white font-semibold">{formData.name}</span>. Your request for <span className="text-white font-semibold">{formData.websiteType}</span> on behalf of <span className="text-white font-semibold">{formData.businessName}</span> has been processed.
-                          </p>
-                        </div>
+                  {/* Form Terminal with Google Form embedded in Glassmorphism Card */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="lg:col-span-7 bg-[#111827]/75 backdrop-blur-xl rounded-3xl border border-white/10 p-6 md:p-8 relative hover:shadow-[0_0_50px_rgba(0,229,255,0.18)] transition-all duration-500"
+                  >
+                    <div className="text-left mb-6">
+                      <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                        <span>🚀 Start Your Website Project</span>
+                      </h3>
+                      <p className="text-xs text-[#AAB4C8] leading-relaxed mt-2">
+                        Fill out the form below and tell us about your business, website requirements and goals. Our team will review your request and contact you shortly.
+                      </p>
+                    </div>
 
-                        {/* Preserver parameters output */}
-                        <div className="bg-[#050816] p-4 rounded-xl border border-white/5 text-left text-xs space-y-2.5 max-w-lg mx-auto">
-                          <span className="text-[10px] font-mono text-[#00E5FF] uppercase tracking-wider block">Generated Brief Credentials</span>
-                          <div><span className="text-[#AAB4C8]">Phone ID:</span> <span className="text-white">{formData.phone}</span></div>
-                          <div><span className="text-[#AAB4C8]">Website Scope:</span> <span className="text-white">{formData.websiteType}</span></div>
-                          <div><span className="text-[#AAB4C8]">Goals:</span> <span className="text-white bg-white/5 px-1.5 py-0.5 rounded">{formData.message}</span></div>
-                        </div>
+                    <div className="relative w-full overflow-hidden rounded-2xl bg-white/[0.02] border border-white/5 mb-6">
+                      <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSe0apESvdJOCln3KLBdO_Bgg0LWxZLwbeBF52Lfh7VfX0Ek8g/viewform?embedded=true"
+                        className="w-full h-[550px] md:h-[650px] border-0"
+                        title="Start Your Website Project - WEBZSTUDIO Inquiry Form"
+                      >
+                        Loading…
+                      </iframe>
+                    </div>
 
-                        <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center max-w-lg mx-auto">
-                          <a
-                            id="whatsapp-proposal-action"
-                            href={`https://wa.me/9350898919?text=Hi%20WEBZSTUDIO,%20I'm%20${encodeURIComponent(formData.name)}.%20I%20just%20filled%20out%20the%20design%20brief%20for%20my%20business%2520'${encodeURIComponent(formData.businessName)}'%20requesting%20a%20'${encodeURIComponent(formData.websiteType)}'.%20Goals:%20${encodeURIComponent(formData.message)}`}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="bg-emerald-500 hover:bg-emerald-600 text-black font-bold py-3.5 px-6 rounded-xl text-xs tracking-wider transition-all uppercase block text-center flex-1"
-                          >
-                            Send Brief to WhatsApp
-                          </a>
-                          
-                          <button
-                            onClick={() => {
-                              setFormData({ name: "", phone: "", businessName: "", websiteType: "Professional Website", message: "" });
-                              setFormSuccess(false);
-                            }}
-                            className="text-xs font-bold text-[#AAB4C8] bg-white/5 hover:bg-white/10 px-5 py-3 rounded-xl transition-colors shrink-0 uppercase tracking-wider"
-                          >
-                            New Inquiry
-                          </button>
-                        </div>
-                      </div>
-                    ) : (
-                      <form onSubmit={handleFormSubmit} className="space-y-5">
-                        
-                        <div className="text-left mb-2">
-                          <h3 className="text-lg font-bold text-white">Submit Brief Details</h3>
-                          <p className="text-xs text-[#AAB4C8]">All fields are carefully validated. All details will remain confidential.</p>
-                        </div>
-
-                        {formError && (
-                          <div className="p-3 bg-red-500/10 border border-red-500/20 text-red-400 text-xs rounded-xl font-medium">
-                            {formError}
-                          </div>
-                        )}
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <div>
-                            <label className="block text-[10px] font-mono text-[#AAB4C8] uppercase tracking-wider mb-1.5">
-                              Full Name *
-                            </label>
-                            <input
-                              type="text"
-                              value={formData.name}
-                              onChange={(e) => setFormData(p => ({ ...p, name: e.target.value }))}
-                              placeholder="e.g. Rajesh Malhotra"
-                              className="w-full bg-[#050816] border border-white/10 focus:border-[#00E5FF] focus:outline-none rounded-xl px-4 py-3 text-xs text-white placeholder-white/20 transition-all"
-                            />
-                          </div>
-
-                          <div>
-                            <label className="block text-[10px] font-mono text-[#AAB4C8] uppercase tracking-wider mb-1.5">
-                              Phone / WhatsApp *
-                            </label>
-                            <input
-                              type="tel"
-                              value={formData.phone}
-                              onChange={(e) => setFormData(p => ({ ...p, phone: e.target.value }))}
-                              placeholder="e.g. 9350898919"
-                              className="w-full bg-[#050816] border border-white/10 focus:border-[#00E5FF] focus:outline-none rounded-xl px-4 py-3 text-xs text-white placeholder-white/20 transition-all"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <div>
-                            <label className="block text-[10px] font-mono text-[#AAB4C8] uppercase tracking-wider mb-1.5">
-                              Business Name *
-                            </label>
-                            <input
-                              type="text"
-                              value={formData.businessName}
-                              onChange={(e) => setFormData(p => ({ ...p, businessName: e.target.value }))}
-                              placeholder="e.g. Malhotra Ventures"
-                              className="w-full bg-[#050816] border border-white/10 focus:border-[#00E5FF] focus:outline-none rounded-xl px-4 py-3 text-xs text-white placeholder-white/20 transition-all"
-                            />
-                          </div>
-
-                          <div>
-                            <label className="block text-[10px] font-mono text-[#AAB4C8] uppercase tracking-wider mb-1.5">
-                              Website Type *
-                            </label>
-                            <select
-                              value={formData.websiteType}
-                              onChange={(e) => setFormData(p => ({ ...p, websiteType: e.target.value }))}
-                              className="w-full bg-[#050816] border border-white/10 focus:border-[#00E5FF] focus:outline-none rounded-xl px-4 py-3 text-xs text-white cursor-pointer"
-                            >
-                              <option value="Professional Website">Professional Multiple-Page (₹9,000)</option>
-                              <option value="Static Website">Static Business Site (₹5,500)</option>
-                              <option value="Custom Website">Fully Custom App (₹17,999)</option>
-                              <option value="Business Website">Business Website</option>
-                              <option value="Portfolio Website">Portfolio Website</option>
-                              <option value="Political Website">Political Website</option>
-                              <option value="School Website">School Website</option>
-                              <option value="Restaurant Website">Restaurant Website</option>
-                              <option value="Landing Pages">Landing Pages</option>
-                              <option value="E-commerce Websites">E-commerce Websites</option>
-                            </select>
-                          </div>
-                        </div>
-
-                        <div>
-                          <label className="block text-[10px] font-mono text-[#AAB4C8] uppercase tracking-wider mb-1.5">
-                            Short Vision / Key Goals (min 10 characters) *
-                          </label>
-                          <textarea
-                            value={formData.message}
-                            onChange={(e) => setFormData(p => ({ ...p, message: e.target.value }))}
-                            rows={3}
-                            placeholder="e.g., We sell high-end agricultural pumps and want a clean dark search card so local framing agencies can call us on WhatsApp."
-                            className="w-full bg-[#050816] border border-white/10 focus:border-[#00E5FF] focus:outline-none rounded-xl px-4 py-3 text-xs text-white placeholder-white/20 transition-all resize-none"
-                          />
-                        </div>
-
-                        <button
-                          type="submit"
-                          disabled={isSubmittingForm}
-                          id="submit-form-button"
-                          className="w-full py-4 bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] text-black font-display font-black text-xs uppercase tracking-widest rounded-xl transition-all hover:shadow-[0_4px_15px_rgba(0,229,255,0.3)] disabled:opacity-50 cursor-pointer flex items-center justify-center space-x-2"
+                    <div className="pt-2">
+                      <PremiumButtonWrapper className="w-full">
+                        <a
+                          href="https://docs.google.com/forms/d/e/1FAIpQLSe0apESvdJOCln3KLBdO_Bgg0LWxZLwbeBF52Lfh7VfX0Ek8g/viewform?usp=publish-editor"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="w-full py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-[#00E5FF]/40 text-center text-xs font-bold uppercase tracking-widest rounded-xl transition-all cursor-pointer flex items-center justify-center space-x-2"
                         >
-                          {isSubmittingForm ? (
-                            <>
-                              <RefreshCw className="w-4 h-4 animate-spin text-black" />
-                              <span>Validating Brief Parameters...</span>
-                            </>
-                          ) : (
-                            <>
-                              <span>Submit Design Inquiry</span>
-                              <Send className="w-3.5 h-3.5" />
-                            </>
-                          )}
-                        </button>
-
-                      </form>
-                    )}
-
-                  </div>
+                          <span>Open Form in New Tab</span>
+                          <ArrowUpRight className="w-4 h-4 ml-1" />
+                        </a>
+                      </PremiumButtonWrapper>
+                    </div>
+                  </motion.div>
 
                 </div>
 
