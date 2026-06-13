@@ -1,0 +1,8 @@
+{
+  "name": "WEBZSTUDIO",
+  "description": "Premium websites that grow businesses. High-performance, conversion-focused digital products, luxury web agency and digital studio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

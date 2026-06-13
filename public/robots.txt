@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://webzstudio.com/sitemap.xml
