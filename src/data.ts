@@ -4,58 +4,58 @@ export const SERVICES: ServiceItem[] = [
   {
     id: "business",
     title: "Business Websites",
-    description: "High-performance corporate platforms crafted to establish industry authority, showcase premium services, and generate leads.",
+    description: "We build professional, trust-building websites for companies. Perfect for showcasing your services, sharing customer reviews, and getting fresh business inquiries every day.",
     iconName: "Briefcase",
-    features: ["Custom SEO Foundations", "Lead Intake Pipelines", "Service Catalog Directories", "Corporate Branding Alignment"]
+    features: ["Google Search Ready (SEO)", "Contact Information Forms", "Clean Service lists", "Brand & Logo alignment"]
   },
   {
     id: "portfolio",
     title: "Portfolio Websites",
-    description: "High-fidelity visual presentations for architects, designers, artists, and creators demanding premium aesthetic presence.",
+    description: "A beautiful, premium way to showcase your creative work. Designed to look clean, elegant, and highly professional for architects, designers, and creators.",
     iconName: "Award",
-    features: ["Cinematic Image Galleries", "Dynamic Interaction Touches", "Bespoke Typography Pairings", "Social Integration Hubs"]
+    features: ["High-quality image grids", "Smooth visual touch effects", "Custom elegant fonts", "Social media profile links"]
   },
   {
     id: "political",
     title: "Political Websites",
-    description: "Highly secure voter mobilization portals built to rally supporter movements, showcase community manifestos, and drive registrations.",
+    description: "Secure and easy-to-read campaign websites. Share your vision, connect directly with local voters, support registration, and post regular campaign updates.",
     iconName: "Vote",
-    features: ["Supporter Sign-up Terminals", "Campaign Schedule Timelines", "Policy Document Highlights", "Optimized Mobile Readability"]
+    features: ["Supporter registration pages", "Campaign timelines & agendas", "Public document templates", "Superb mobile layout"]
   },
   {
     id: "school",
     title: "School Websites",
-    description: "Highly structured educational portals to organize academic courses, share parent-teacher guidelines, and facilitate admissions.",
+    description: "Clean and well-organized portals for schools, academies, and coaching institutes. Share notifications, calendars, and academic guides with parents and students.",
     iconName: "GraduationCap",
-    features: ["Online Admissions Guides", "Integrated Event Calendars", "Structured Document Repositories", "W3C Accessibility Compliant"]
+    features: ["Admissions & registration helper", "School events & notifications", "Downloadable syllabus files", "Easy principal message section"]
   },
   {
     id: "restaurant",
-    title: "Restaurant Websites",
-    description: "Succulent visual menu guides coupled with table booking reservations, local map routes, and secure ordering callouts.",
+    title: "Restaurant Menu Websites",
+    description: "Mouth-watering online menus with beautiful food photography. Let customers view your dishes on mobile and book tables or call you instantly.",
     iconName: "UtensilsCrossed",
-    features: ["Sensory Gourmet Photo Blocks", "Bespoke Menu Item Lists", "Table Reservation Inquiries", "Instant Contact Redirects"]
+    features: ["Gorgeous food photo columns", "Interactive food list menu", "Book-a-table inquiries", "One-click call-button"]
   },
   {
     id: "landing",
-    title: "Landing Pages",
-    description: "Laser-focused marketing pages built specifically to scale campaigns, focus buyer attention, and maximize high conversion ratios.",
+    title: "High-Converting Landing Pages",
+    description: "Single-page promotional sites that keep visitors focused on one clear action. Perfect for active ad campaigns, product launches, or capturing leads.",
     iconName: "Zap",
-    features: ["Pristine Content Hierarchy", "High-Visibility Form Triggers", "Sub-Second Asset Loading", "Dynamic Action Sections"]
+    features: ["Clear and catchy headings", "Prominent sign-up buttons", "Direct WhatsApp link-out", "Focused benefit cards"]
   },
   {
     id: "ecommerce",
-    title: "E-commerce Websites",
-    description: "High-converting digital storefronts tailored to exhibit physical or digital goods with cart triggers and localized checkouts.",
+    title: "E-Commerce Stores",
+    description: "Responsive online storefronts designed to detail your physical or digital products. Includes clean shopping carts, checkout forms, and simple product views.",
     iconName: "ShoppingBag",
-    features: ["Modern Cart Experience", "Pragmatic Order Summaries", "Dynamic Product Sliders", "Smooth Catalog Filtering"]
+    features: ["Smooth cart recalculation", "Clean order lists & summaries", "Product slideshow blocks", "Easy catalog category filter"]
   },
   {
     id: "custom",
-    title: "Custom Websites",
-    description: "Taylor-made state architectures engineered from the ground up to solve complex enterprise goals and fully custom layouts.",
+    title: "Bespoke Custom Websites",
+    description: "Need something completely original? We write secure custom code bases to solve your unique business challenges and match your exact aesthetic vision.",
     iconName: "Cpu",
-    features: ["Exclusive Custom Features", "Dedicated State Storage", "Highly Scalable Codebases", "Optimized Fluid User Flow"]
+    features: ["Custom interactive modules", "Tailor-made state features", "High performance coding", "Direct WhatsApp updates access"]
   }
 ];
 
@@ -66,12 +66,12 @@ export const PRICING: PricingPlan[] = [
     price: "₹5,500",
     popular: false,
     features: [
-      "Modern Premium Dark UI Layout",
-      "Sleek Single-Page Responsive Flow",
-      "Sub-Second Touch Experience",
-      "Fully Functional Contact Form",
-      "Core SEO Metadata Configured",
-      "Completed Delivery Within 3-5 Days"
+      "Modern Single-Page Layout",
+      "Fast & responsive on all mobile devices",
+      "Functional customer contact form",
+      "Basic Google Search configuration (SEO)",
+      "Free launcher support & guidance",
+      "Fast delivery within 3-5 working days"
     ]
   },
   {
@@ -80,12 +80,12 @@ export const PRICING: PricingPlan[] = [
     price: "₹9,000",
     popular: true,
     features: [
-      "Custom Multi-Page Creative Architecture",
-      "Advanced Layout Animations (Framer Motion)",
-      "High-Conversion Mobile Layouts",
-      "Direct Click-to-WhatsApp Integration",
-      "Enhanced Google Rank Optimization",
-      "Elite Interactive Review Carousel"
+      "Custom Multi-Page Design",
+      "Beautiful, modern smooth animations",
+      "Super-fast loading with zero lag",
+      "Direct Click-to-WhatsApp button",
+      "Advanced Google ranking setting",
+      "Customer review showcase section"
     ]
   },
   {
@@ -94,12 +94,12 @@ export const PRICING: PricingPlan[] = [
     price: "₹17,999",
     popular: false,
     features: [
-      "Independently Engineered Custom Codebase",
-      "End-to-End Bespoke System Design",
-      "Dedicated Client Inquiry Storage",
-      "High-Status Logo & Asset Graphics Bundle",
-      "Priority WhatsApp & Email Support",
-      "Full Launch Verification Suite"
+      "Custom code built entirely from scratch",
+      "Bespoke layout and unique color palette",
+      "Interactive customer inquiry panel",
+      "Free logo and assets graphics bundle",
+      "Priority WhatsApp support from founder",
+      "Rigorous pre-launch device testing"
     ]
   }
 ];
@@ -112,7 +112,7 @@ export const PORTFOLIO: PortfolioProject[] = [
     tech: ["React 18", "Vite", "Tailwind CSS"],
     mockupUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
     gradient: "from-cyan-500 to-blue-600",
-    metrics: "Sub-0.4s Fast Load Achieved"
+    metrics: "Loads instantly in 0.4 seconds"
   },
   {
     id: "portfolio-professional",
@@ -121,7 +121,7 @@ export const PORTFOLIO: PortfolioProject[] = [
     tech: ["React", "Motion", "Tailwind CSS", "Lucide Icons"],
     mockupUrl: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80",
     gradient: "from-indigo-500 to-purple-600",
-    metrics: "180% Higher Inbound Actions"
+    metrics: "Engineered for high leads growth"
   },
   {
     id: "portfolio-custom",
@@ -130,7 +130,7 @@ export const PORTFOLIO: PortfolioProject[] = [
     tech: ["Fullstack React", "Tailwind CSS", "Motion API"],
     mockupUrl: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
     gradient: "from-amber-500 to-orange-600",
-    metrics: "Interactive Live Reservation Complete"
+    metrics: "Includes live table booking simulation"
   }
 ];
 
@@ -141,7 +141,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Proprietor",
     company: "Malhotra Enterprises",
     avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80",
-    quote: "WEBZSTUDIO designed a premium website for my logistics firm. Leads increased within two weeks. The design looks very high-end and matches what international clients look for.",
+    quote: "WEBZSTUDIO built a premium portal for my logistics business. Our inquiries grew immediately. The website looks very international and quickly wins client trust.",
     stars: 5
   },
   {
@@ -150,7 +150,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Director",
     company: "Saraswati Learning Institute",
     avatarUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80",
-    quote: "Our new clean school website has made parent-teacher communication extremely easy. Admissions guides are easy to locate, and feedback has been fantastic.",
+    quote: "Our new school website has made parent-teacher updates incredibly easy. Parents locate the admission forms right away, and the overall feedback has been awesome.",
     stars: 5
   },
   {
@@ -159,7 +159,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Owner",
     company: "Spice Bistro Lounge",
     avatarUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80",
-    quote: "Customer feedback about our website menu layout is stellar. People easily view dishes on their mobile phones and directly book tables or call us.",
+    quote: "Customers love the digital menu layout on mobile. They can see food photos instantly, book a lunch table, or send a clean query in just a tap.",
     stars: 5
   }
 ];
@@ -167,27 +167,27 @@ export const TESTIMONIALS: Testimonial[] = [
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     step: "01",
-    title: "Requirement Discovery",
-    description: "We understand your targeted customer demographic, essential services, and conversion goals."
+    title: "Simple Chat & Discovery",
+    description: "We discuss your exact needs, products, and who your target buyers are."
   },
   {
     step: "02",
-    title: "Premium UI Planning",
-    description: "We map out high-fidelity dark themes and elegant typographic hierarchies designed to establish trusts."
+    title: "Clean Design Blueprint",
+    description: "We map out an elegant mockup layout that is incredibly easy for everyone to read."
   },
   {
     step: "03",
-    title: "Pixel-Perfect Development",
-    description: "Our certified development architect writes clean, compliant React and Tailwind code with smooth scroll reveals."
+    title: "High-Speed Development",
+    description: "We program your custom pages using clean code principles so it loads instantly."
   },
   {
     step: "04",
-    title: "Fidelity Testing",
-    description: "We verify the layout across iPhone, Android, tablets, and large screens to eliminate sizing overlaps."
+    title: "Thorough Device Testing",
+    description: "We carefully check the look and feel on iPhones, Androids, tablets, and laptops."
   },
   {
     step: "05",
-    title: "Conversion Delivery",
-    description: "We launch your complete responsive platform with optimized metadata, ready to attract high-value inquiries."
+    title: "Live Launch & Growth",
+    description: "We launch your complete website and configure basic SEO so you are ready for customers."
   }
 ];

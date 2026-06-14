@@ -27,7 +27,8 @@ import {
   User,
   Coffee,
   CheckCircle2,
-  ChevronDown
+  ChevronDown,
+  MapPin
 } from "lucide-react";
 import Header from "./components/Header";
 import { SERVICES, PRICING, PORTFOLIO, TESTIMONIALS, PROCESS_STEPS } from "./data";
@@ -331,12 +332,15 @@ export default function App() {
                             </div>
                           </div>
                           <a
-                            href="https://wa.me/9350898919"
+                            href="https://wa.me/919350898919?text=Hello%20WEBZSTUDIO,%20I'm%20interested%20in%20a%20modern%20website!"
                             target="_blank"
                             rel="noreferrer"
-                            className="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-3 py-1.5 rounded-lg border border-emerald-500/30 transition-all"
+                            className="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 text-[10.5px] font-bold px-3 py-2 rounded-lg border border-emerald-500/30 transition-all flex items-center gap-1.5"
                           >
-                            Chat 24/7
+                            <svg className="w-3.5 h-3.5 text-emerald-450 fill-emerald-450" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12.004 0C5.374 0 0 5.373 0 12.001a11.93 11.93 0 0 0 3.102 8.163L1.085 24l3.966-1.042a11.968 11.968 0 0 0 6.953 2.043c6.633 0 12-5.372 12-12.001C24.004 5.373 18.632 0 12.004 0zm6.985 16.924c-.31.874-1.558 1.583-2.483 1.63-.611.03-1.408.067-3.957-.961-3.238-1.309-5.309-4.577-5.47-4.793-.16-.216-1.282-1.688-1.282-3.22 0-1.533.805-2.285 1.092-2.583.287-.297.625-.371.834-.371.21 0 .42.002.605.009.191.008.448-.073.702.531.258.614.887 2.146.963 2.3.076.155.127.336.026.541-.1.206-.153.336-.307.514-.154.178-.323.396-.462.532-.154.153-.314.322-.136.625.179.303.791 1.29 1.696 2.086 1.168 1.025 2.152 1.343 2.458 1.498.307.155.488.13.668-.073.18-.206.772-.887.978-1.196.206-.307.412-.258.694-.155.283.103 1.8.84 2.112.993.31.155.514.232.592.36.077.13.077.747-.233 1.621z"/>
+                            </svg>
+                            <span>Chat 24/7</span>
                           </a>
                         </div>
                       </div>
@@ -364,7 +368,7 @@ export default function App() {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div className="bg-[#111827] p-6 rounded-2xl border border-white/5 text-left space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-[#00E5FF]/10 flex items-center justify-center text-[#00E5FF]">
                         <Briefcase className="w-5 h-5" />
@@ -409,7 +413,7 @@ export default function App() {
                   </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {TESTIMONIALS.map((test) => (
                     <div
                       key={test.id}
@@ -452,7 +456,7 @@ export default function App() {
                     How We Deliver Your Complete Website
                   </h2>
 
-                  <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                     {PROCESS_STEPS.map((step, idx) => (
                       <Magnetic key={idx} strength={0.06} className="h-full">
                         <PremiumCard id={`process-card-${idx}`} className="h-full">
@@ -589,7 +593,7 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto pt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto pt-4">
                   {PRICING.map((plan) => (
                     <Magnetic key={plan.id} strength={0.05} className="h-full">
                       <PremiumCard
@@ -654,16 +658,18 @@ export default function App() {
                 {/* Budget Trust note */}
                 <div className="mt-12 bg-[#0B1220] p-5 rounded-xl border border-white/5 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between text-left gap-4">
                   <span className="text-xs text-[#AAB4C8] font-mono leading-relaxed">
-                    Have a custom voter mobilization project, custom menu flow, or large school directory? Talk directly to our lead software architect on WhatsApp to secure premium parameters.
+                    Have a unique idea or need custom features? Talk directly to me on WhatsApp to discuss your website and get a custom quote.
                   </span>
                   <a
-                    href="https://wa.me/9350898919"
+                    href="https://wa.me/919350898919?text=Hello%20WEBZSTUDIO,%20I'm%20interested%20in%20a%20modern%20website!"
                     target="_blank"
                     rel="noreferrer"
-                    className="shrink-0 inline-flex items-center space-x-2 text-xs font-bold text-[#00E5FF] border-b border-[#00E5FF]/30 hover:border-[#00E5FF] pb-0.5 transition-all"
+                    className="shrink-0 inline-flex items-center space-x-2 text-xs font-bold text-[#00E5FF] hover:text-white transition-all bg-white/5 border border-white/10 hover:border-[#00E5FF] px-4 py-2.5 rounded-xl block"
                   >
+                    <svg className="w-4 h-4 text-[#00E5FF] fill-[#00E5FF]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.004 0C5.374 0 0 5.373 0 12.001a11.93 11.93 0 0 0 3.102 8.163L1.085 24l3.966-1.042a11.968 11.968 0 0 0 6.953 2.043c6.633 0 12-5.372 12-12.001C24.004 5.373 18.632 0 12.004 0zm6.985 16.924c-.31.874-1.558 1.583-2.483 1.63-.611.03-1.408.067-3.957-.961-3.238-1.309-5.309-4.577-5.47-4.793-.16-.216-1.282-1.688-1.282-3.22 0-1.533.805-2.285 1.092-2.583.287-.297.625-.371.834-.371.21 0 .42.002.605.009.191.008.448-.073.702.531.258.614.887 2.146.963 2.3.076.155.127.336.026.541-.1.206-.153.336-.307.514-.154.178-.323.396-.462.532-.154.153-.314.322-.136.625.179.303.791 1.29 1.696 2.086 1.168 1.025 2.152 1.343 2.458 1.498.307.155.488.13.668-.073.18-.206.772-.887.978-1.196.206-.307.412-.258.694-.155.283.103 1.8.84 2.112.993.31.155.514.232.592.36.077.13.077.747-.233 1.621z"/>
+                    </svg>
                     <span>Message on WhatsApp</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
 
@@ -692,7 +698,7 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                   {PORTFOLIO.map((proj) => (
                     <Magnetic key={proj.id} strength={0.06} className="h-full">
                       <PremiumCard id={`portfolio-${proj.id}`} className="h-full" liftAmount="-translate-y-2">
@@ -846,30 +852,33 @@ export default function App() {
                         <h3 className="text-lg font-bold text-white tracking-wide flex items-center justify-center">
                           <InteractiveName />
                         </h3>
-                        <p className="text-[10px] text-[#AAB4C8] font-mono mt-2 uppercase tracking-widest text-[#AAB4C8]">SOFTWARE DEVELOPER &amp; FOUNDER</p>
-                        <p className="text-[9px] text-[#D4AF37] font-mono mt-1 font-bold uppercase tracking-[0.15em]">Rewari, India</p>
+                        <p className="text-[10px] text-[#AAB4C8] font-mono mt-2 uppercase tracking-widest">FOUNDER &amp; DEVELOPER</p>
+                        <p className="text-[9.5px] text-emerald-400 font-mono mt-1 font-bold uppercase tracking-[0.15em]">Haryana, India</p>
                       </div>
                     </div>
 
                     {/* Story Copy */}
                     <div className="lg:col-span-8 space-y-4">
                       <h4 className="text-base sm:text-lg font-display font-bold text-white">
-                        About The Lead Software Engineer
+                        My Story &amp; Approach
                       </h4>
-                      <p className="text-xs text-[#AAB4C8] leading-relaxed">
-                        Based in Rewari, Lakshay Verma is a professional website developer and certified software engineer specializing in luxury frontends, custom state management tools, and clean semantic structures. 
+                      <p className="text-sm text-[#AAB4C8] leading-relaxed">
+                        Based in Haryana and proudly connected to Rewari, I help businesses, professionals and organizations build modern websites that create trust and grow online presence.
                       </p>
-                      <p className="text-xs text-[#AAB4C8] leading-relaxed">
-                        Lakshay is committed to raising the standard of web credibility. Under his strict lead, every project delivered by WEBZSTUDIO undergoes exhaustive responsive testing on various display resolutions, optimizing and caching images to run at under 0.4 seconds load speeds.
+                      <p className="text-sm text-[#AAB4C8] leading-relaxed">
+                        I believe in keeping things simple, direct, and transparent. Instead of using slow, complicated templates, I write custom code that loads fast and works perfectly on every single device—including phones, tablets, and computers.
+                      </p>
+                      <p className="text-sm text-[#AAB4C8] leading-relaxed">
+                        By personally managing your project from the initial design layout to final launch and SEO setup, I ensure your website represents your business flawlessly and is incredibly easy for your customers to use.
                       </p>
 
                       <div className="pt-4 border-t border-white/5 grid grid-cols-2 gap-4">
                         <div>
-                          <span className="text-xs font-mono text-[#00E5FF] block">Direct Hotline</span>
-                          <span className="text-xs font-bold text-white">+91 93508 98919</span>
+                          <span className="text-xs font-mono text-[#00E5FF] block">Direct WhatsApp</span>
+                          <span className="text-xs font-bold text-white">+91 9350898919</span>
                         </div>
                         <div>
-                          <span className="text-xs font-mono text-[#7C3AED] block">Lead Contact</span>
+                          <span className="text-xs font-mono text-[#7C3AED] block">Lead Email</span>
                           <span className="text-xs font-bold text-white">lavyzostore@gmail.com</span>
                         </div>
                       </div>
@@ -899,21 +908,25 @@ export default function App() {
                         Get Your Website Today
                       </h2>
                       <p className="text-sm text-[#AAB4C8] leading-relaxed">
-                        Tell us about your project and we'll get back to you with the best solution for your business.
+                        Have a project or want to collaborate? Contact me directly or drop a message on WhatsApp. I am active and ready to help.
                       </p>
 
-                      <div className="space-y-3 pt-4">
+                      <div className="space-y-4 pt-4">
                         {/* WhatsApp Card */}
                         <a
-                          href="https://wa.me/919350898919"
+                          href="https://wa.me/919350898919?text=Hello%20WEBZSTUDIO,%20I'm%20interested%20in%20a%20modern%20website!"
                           target="_blank"
                           rel="noreferrer"
-                          className="flex items-center space-x-4 p-5 bg-[#111827] hover:bg-[#111827]/80 hover:border-[#00E5FF]/30 transition-all rounded-xl border border-white/5 group duration-300"
+                          className="flex items-center space-x-4 p-5 bg-[#111827] hover:bg-[#111827]/80 hover:border-emerald-500/30 transition-all rounded-xl border border-white/5 group duration-300"
                         >
-                          <Phone className="w-5 h-5 text-[#00E5FF] shrink-0 group-hover:scale-110 transition-transform" />
+                          <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0 group-hover:scale-110 transition-transform">
+                            <svg className="w-5 h-5 fill-emerald-400" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12.004 0C5.374 0 0 5.373 0 12.001a11.93 11.93 0 0 0 3.102 8.163L1.085 24l3.966-1.042a11.968 11.968 0 0 0 6.953 2.043c6.633 0 12-5.372 12-12.001C24.004 5.373 18.632 0 12.004 0zm6.985 16.924c-.31.874-1.558 1.583-2.483 1.63-.611.03-1.408.067-3.957-.961-3.238-1.309-5.309-4.577-5.47-4.793-.16-.216-1.282-1.688-1.282-3.22 0-1.533.805-2.285 1.092-2.583.287-.297.625-.371.834-.371.21 0 .42.002.605.009.191.008.448-.073.702.531.258.614.887 2.146.963 2.3.076.155.127.336.026.541-.1.206-.153.336-.307.514-.154.178-.323.396-.462.532-.154.153-.314.322-.136.625.179.303.791 1.29 1.696 2.086 1.168 1.025 2.152 1.343 2.458 1.498.307.155.488.13.668-.073.18-.206.772-.887.978-1.196.206-.307.412-.258.694-.155.283.103 1.8.84 2.112.993.31.155.514.232.592.36.077.13.077.747-.233 1.621z"/>
+                            </svg>
+                          </div>
                           <div>
-                            <span className="text-[10px] text-[#AAB4C8] font-mono uppercase block">WhatsApp</span>
-                            <p className="text-sm font-bold text-white group-hover:text-[#00E5FF] transition-colors">9350898919</p>
+                            <span className="text-[10px] text-[#AAB4C8] font-mono uppercase block">WhatsApp Chat</span>
+                            <p className="text-sm font-black text-white group-hover:text-emerald-400 transition-colors">+91 9350898919</p>
                           </div>
                         </a>
 
@@ -922,19 +935,23 @@ export default function App() {
                           href="mailto:lavyzostore@gmail.com"
                           className="flex items-center space-x-4 p-5 bg-[#111827] hover:bg-[#111827]/80 hover:border-purple-500/30 transition-all rounded-xl border border-white/5 group duration-300"
                         >
-                          <Mail className="w-5 h-5 text-purple-400 shrink-0 group-hover:scale-110 transition-transform" />
+                          <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-450 shrink-0 group-hover:scale-110 transition-transform">
+                            <Mail className="w-5 h-5 text-purple-400" />
+                          </div>
                           <div>
-                            <span className="text-[10px] text-[#AAB4C8] font-mono uppercase block">Email</span>
-                            <p className="text-sm font-bold text-white group-hover:text-purple-400 transition-colors">lavyzostore@gmail.com</p>
+                            <span className="text-[10px] text-[#AAB4C8] font-mono uppercase block">Direct Email</span>
+                            <p className="text-sm font-black text-white group-hover:text-purple-400 transition-colors">lavyzostore@gmail.com</p>
                           </div>
                         </a>
 
-                        {/* Local Office Card */}
+                        {/* Connection Card */}
                         <div className="flex items-center space-x-4 p-5 bg-[#111827] rounded-xl border border-white/5">
-                          <User className="w-5 h-5 text-amber-500 shrink-0" />
+                          <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-550 shrink-0">
+                            <MapPin className="w-5 h-5 text-amber-500" />
+                          </div>
                           <div>
-                            <span className="text-[10px] text-[#AAB4C8] font-mono uppercase">Local Office Lead</span>
-                            <p className="text-sm font-bold text-white">Rewari, Haryana, India</p>
+                            <span className="text-[10px] text-[#AAB4C8] font-mono uppercase block">Based In</span>
+                            <p className="text-sm font-black text-white">Haryana, India (proudly Rewari connected)</p>
                           </div>
                         </div>
                       </div>
@@ -942,19 +959,22 @@ export default function App() {
 
                     {/* WhatsApp Fast Option */}
                     <div className="mt-8 pt-8 border-t border-white/5">
-                      <div className="p-6 bg-gradient-to-r from-emerald-600/10 to-teal-600/10 rounded-2xl border border-emerald-500/25 flex flex-col sm:flex-row items-center justify-between gap-4">
+                      <div className="p-6 bg-gradient-to-r from-emerald-600/10 to-teal-600/10 rounded-2xl border border-emerald-500/25 flex flex-col sm:flex-row items-center justify-between gap-4 text-left">
                         <div>
                           <h4 className="text-xs font-bold text-emerald-400">Prefer Instant Chat?</h4>
-                          <p className="text-[11px] text-[#AAB4C8]">Drop us a direct message on WhatsApp to initiate dynamic alignment.</p>
+                          <p className="text-[11px] text-[#AAB4C8]">Drop a line on WhatsApp to discuss ideas and get an instant quote.</p>
                         </div>
                         <a
                           id="contact-whatsapp-primary"
-                          href="https://wa.me/919350898919?text=Hi%20WEBZSTUDIO!%20Interested%20in%20launching%20a%20premium%20website%20scale.%20Let's%20discuss!"
+                          href="https://wa.me/919350898919?text=Hello%20WEBZSTUDIO,%20I'm%20interested%20in%20a%20modern%20website!"
                           target="_blank"
                           rel="noreferrer"
-                          className="shrink-0 bg-emerald-500 hover:bg-emerald-600 text-black font-bold px-4 py-2.5 rounded-xl text-xs transition duration-200 cursor-pointer uppercase tracking-wider"
+                          className="shrink-0 bg-emerald-500 hover:bg-emerald-400 text-black font-black px-5 py-3 rounded-xl text-xs transition duration-200 cursor-pointer uppercase tracking-wider flex items-center gap-2"
                         >
-                          Chat Now
+                          <svg className="w-4 h-4 fill-black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.004 0C5.374 0 0 5.373 0 12.001a11.93 11.93 0 0 0 3.102 8.163L1.085 24l3.966-1.042a11.968 11.968 0 0 0 6.953 2.043c6.633 0 12-5.372 12-12.001C24.004 5.373 18.632 0 12.004 0zm6.985 16.924c-.31.874-1.558 1.583-2.483 1.63-.611.03-1.408.067-3.957-.961-3.238-1.309-5.309-4.577-5.47-4.793-.16-.216-1.282-1.688-1.282-3.22 0-1.533.805-2.285 1.092-2.583.287-.297.625-.371.834-.371.21 0 .42.002.605.009.191.008.448-.073.702.531.258.614.887 2.146.963 2.3.076.155.127.336.026.541-.1.206-.153.336-.307.514-.154.178-.323.396-.462.532-.154.153-.314.322-.136.625.179.303.791 1.29 1.696 2.086 1.168 1.025 2.152 1.343 2.458 1.498.307.155.488.13.668-.073.18-.206.772-.887.978-1.196.206-.307.412-.258.694-.155.283.103 1.8.84 2.112.993.31.155.514.232.592.36.077.13.077.747-.233 1.621z"/>
+                          </svg>
+                          <span>Chat Now</span>
                         </a>
                       </div>
                     </div>
@@ -1439,11 +1459,11 @@ export default function App() {
               <button onClick={() => handleScrollTo("services")} className="text-left text-xs text-[#AAB4C8] hover:text-white transition-colors">Educational Board Directories</button>
             </div>
 
-            {/* Direct hotline contact details */}
+            {/* Direct helpline contact details */}
             <div className="md:col-span-2 flex flex-col space-y-3">
-              <span className="text-[10px] font-mono text-white tracking-widest uppercase">Solution Helpline</span>
-              <a href="https://wa.me/9350898919" target="_blank" rel="noreferrer" className="text-xs text-[#00E5FF] font-bold hover:underline tracking-wide block">
-                +91 93508 98919
+              <span className="text-[10px] font-mono text-white tracking-widest uppercase">Direct Support</span>
+              <a href="https://wa.me/919350898919?text=Hello%20WEBZSTUDIO,%20I'm%20interested%20in%20a%20modern%20website!" target="_blank" rel="noreferrer" className="text-xs text-[#00E5FF] font-bold hover:underline tracking-wide block">
+                +91 9350898919
               </a>
               <p className="text-[10px] text-[#AAB4C8] leading-normal font-mono uppercase">
                 Email: <br />
@@ -1460,7 +1480,7 @@ export default function App() {
             <div className="flex space-x-4">
               <span className="hover:text-white transition-colors">Flat Rate Pricing</span>
               <span className="text-white/10">|</span>
-              <span className="hover:text-white transition-colors">Rewari Office Base</span>
+              <span className="hover:text-white transition-colors">Based in Haryana — connected to Rewari</span>
             </div>
           </div>
 
@@ -1472,13 +1492,15 @@ export default function App() {
       {/* ========================================================== */}
       <a
         id="floating-whatsapp-trigger"
-        href="https://wa.me/9350898919?text=Hi%20WEBZSTUDIO!%20I%20am%20exploring%20your%20premium%20agency%20page%20and%20want%20to%20discuss%20a%20responsive%20website%20project."
+        href="https://wa.me/919350898919?text=Hello%20WEBZSTUDIO,%20I'm%20interested%20in%20a%20modern%20website!"
         target="_blank"
         rel="noreferrer"
-        className="fixed bottom-6 right-6 z-40 flex items-center justify-center p-3.5 bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] hover:from-white hover:to-white text-black rounded-2xl shadow-[0_10px_25px_rgba(0,229,255,0.4)] transition-all duration-300 transform hover:scale-105 active:scale-95"
+        className="fixed bottom-6 right-6 z-40 flex items-center justify-center p-3.5 bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-white hover:to-white text-black rounded-2xl shadow-[0_10px_25px_rgba(16,185,129,0.4)] transition-all duration-300 transform hover:scale-105 active:scale-95"
         title="Chat live with Lakshay Verma"
       >
-        <MessageSquare className="w-5.5 h-5.5 fill-black" />
+        <svg className="w-6 h-6 text-black fill-black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.004 0C5.374 0 0 5.373 0 12.001a11.93 11.93 0 0 0 3.102 8.163L1.085 24l3.966-1.042a11.968 11.968 0 0 0 6.953 2.043c6.633 0 12-5.372 12-12.001C24.004 5.373 18.632 0 12.004 0zm6.985 16.924c-.31.874-1.558 1.583-2.483 1.63-.611.03-1.408.067-3.957-.961-3.238-1.309-5.309-4.577-5.47-4.793-.16-.216-1.282-1.688-1.282-3.22 0-1.533.805-2.285 1.092-2.583.287-.297.625-.371.834-.371.21 0 .42.002.605.009.191.008.448-.073.702.531.258.614.887 2.146.963 2.3.076.155.127.336.026.541-.1.206-.153.336-.307.514-.154.178-.323.396-.462.532-.154.153-.314.322-.136.625.179.303.791 1.29 1.696 2.086 1.168 1.025 2.152 1.343 2.458 1.498.307.155.488.13.668-.073.18-.206.772-.887.978-1.196.206-.307.412-.258.694-.155.283.103 1.8.84 2.112.993.31.155.514.232.592.36.077.13.077.747-.233 1.621z"/>
+        </svg>
       </a>
 
       {/* Floating live response indicator badge on left corner */}

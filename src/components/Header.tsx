@@ -19,6 +19,18 @@ export default function Header({ onScrollTo, activeSection }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent background scrolling while mobile nav drawer is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   const navItems = [
     { id: "home", label: "Home" },
     { id: "services", label: "Services" },
@@ -134,54 +146,86 @@ export default function Header({ onScrollTo, activeSection }: HeaderProps) {
         </div>
       </div>
 
+      {/* Mobile Drawer Back Scrim / Dark Overlay */}
+      {isOpen && (
+        <div
+          id="mobile-drawer-overlay"
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-black/60 backdrop-blur-md z-30 transition-opacity duration-300 cursor-pointer pointer-events-auto md:hidden"
+        />
+      )}
+
       {/* Mobile Drawer Overlay Menu */}
       <div
         id="mobile-menu-drawer"
-        className={`fixed inset-y-0 right-0 w-80 max-w-full bg-[#050816]/98 border-l border-white/5 shadow-2xl z-40 transform transition-transform duration-300 md:hidden ${
+        className={`fixed inset-y-0 right-0 w-80 max-w-full bg-[#0B1220] border-l border-white/10 shadow-3xl z-40 transform transition-transform duration-300 ease-out md:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col h-full pt-24 pb-8 px-6 justify-between">
-          <div className="flex flex-col space-y-3">
-            <span className="text-[10px] font-mono tracking-widest text-[#AAB4C8] uppercase px-3">
-              NAVIGATION MENU
-            </span>
-            <hr className="border-white/5 mb-2" />
-            <div className="flex flex-col space-y-1">
+        <div className="flex flex-col h-full pt-20 pb-8 px-6 justify-between overflow-y-auto">
+          {/* Header row in mobile drawer for closing fast */}
+          <div className="flex flex-col space-y-5">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] font-mono tracking-widest text-[#AAB4C8] uppercase">
+                NAVIGATION MENU
+              </span>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="p-1 rounded-lg hover:bg-white/5 text-[#AAB4C8] hover:text-white transition-colors"
+                aria-label="Close Menu"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <hr className="border-white/10" />
+            
+            <div className="flex flex-col space-y-1.5 pt-2">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   id={`mobile-nav-link-${item.id}`}
                   onClick={() => handleNavClick(item.id)}
-                  className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                  className={`w-full text-left px-4 py-3.5 rounded-xl text-sm font-extrabold uppercase tracking-widest transition-all duration-300 cursor-pointer relative overflow-hidden group ${
                     activeSection === item.id
-                      ? "text-[#00E5FF] bg-white/5 font-extrabold"
-                      : "text-[#AAB4C8] hover:text-white hover:bg-white/3"
+                      ? "text-[#00E5FF] bg-white/5 font-black border-l-4 border-[#00E5FF] shadow-[inset_4px_0_12px_rgba(0,229,255,0.05)]"
+                      : "text-white hover:text-[#00E5FF] hover:bg-white/5"
                   }`}
                 >
-                  {item.label}
+                  <span className="relative z-10 flex items-center justify-between">
+                    <span>{item.label}</span>
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs font-mono text-[#00E5FF]">
+                      →
+                    </span>
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#00E5FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </button>
               ))}
             </div>
           </div>
 
           {/* Mobile Drawer Footer CTA Actions */}
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 pt-10">
             <PremiumButtonWrapper className="w-full">
               <button
                 id="mobile-drawer-ai-cta"
-                onClick={() => handleNavClick("contact")}
-                className="w-full flex items-center justify-center space-x-2 py-3.5 px-5 bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] rounded-xl text-xs font-black uppercase tracking-wider text-black transition-all"
+                onClick={() => {
+                  setIsOpen(false);
+                  // Deep link directly to contact section or WhatsApp
+                  window.open("https://wa.me/919350898919?text=Hello%20WEBZSTUDIO,%20I'm%20interested%20in%20a%20modern%20website!", "_blank");
+                }}
+                className="w-full flex items-center justify-center space-x-2 py-4 px-5 bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] hover:from-[#00E5FF]/90 hover:to-[#7C3AED]/90 rounded-xl text-xs font-black uppercase tracking-wider text-black transition-all shadow-[0_0_20px_rgba(0,229,255,0.4)]"
               >
-                <Zap className="w-4 h-4 text-black" />
-                <span>Get Free Quote</span>
-                <ArrowUpRight className="w-4 h-4 text-black" />
+                <Zap className="w-4 h-4 text-black fill-black" />
+                <span>Get Free Quote on WhatsApp</span>
               </button>
             </PremiumButtonWrapper>
             
             <div className="text-center font-mono">
-              <span className="text-[9px] text-[#AAB4C8] uppercase tracking-widest">
-                9350898919 • lavyzostore@gmail.com
+              <span className="text-[9px] text-[#AAB4C8] uppercase tracking-widest block">
+                +91 9350898919
+              </span>
+              <span className="text-[9px] text-[#AAB4C8] uppercase tracking-widest block mt-0.5">
+                lavyzostore@gmail.com
               </span>
             </div>
           </div>

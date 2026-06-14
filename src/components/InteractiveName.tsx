@@ -33,12 +33,24 @@ export function InteractiveName() {
   const [shouldAnimate, setShouldAnimate] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
+  // Cached AudioContext to work correctly across mobile device autoplay restrictions
+  const audioCtxRef = useRef<AudioContext | null>(null);
+
   // Sound generator (Web Audio API)
   const playPremiumClickSound = () => {
     try {
       const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
       if (!AudioContextClass) return;
-      const ctx = new AudioContextClass();
+
+      if (!audioCtxRef.current) {
+        audioCtxRef.current = new AudioContextClass();
+      }
+      const ctx = audioCtxRef.current;
+
+      // Handle user gesture resume for aggressive mobile safety constraints
+      if (ctx.state === "suspended") {
+        ctx.resume();
+      }
       
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
@@ -270,7 +282,8 @@ export function InteractiveName() {
       }
     };
 
-    const handleMouseDown = (e: MouseEvent) => {
+    const handlePointerDown = (e: PointerEvent) => {
+      // Prevent browser default gesture zoom or double click zooming
       const parentRect = parentEl.getBoundingClientRect();
       const padding = 80;
       const clickX = e.clientX - parentRect.left + padding;
@@ -295,14 +308,14 @@ export function InteractiveName() {
     };
 
     parentEl.addEventListener("mousemove", handleMouseMove);
-    parentEl.addEventListener("mousedown", handleMouseDown);
+    parentEl.addEventListener("pointerdown", handlePointerDown);
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationFrameId);
       if (parentEl) {
         parentEl.removeEventListener("mousemove", handleMouseMove);
-        parentEl.removeEventListener("mousedown", handleMouseDown);
+        parentEl.removeEventListener("pointerdown", handlePointerDown);
       }
     };
   }, [shouldAnimate, isHovered]);
