@@ -64,17 +64,13 @@ export default function Header({ onScrollTo, activeSection }: HeaderProps) {
             >
               <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-[#00E5FF] to-[#7C3AED] p-[1.5px] transition-transform duration-300 group-hover:scale-105 shadow-[0_0_15px_rgba(0,229,255,0.15)]">
                 <div className="w-full h-full bg-[#050816] rounded-[10px] flex items-center justify-center overflow-hidden p-1.5">
-                  {/* Custom Vector WZ Monogram */}
-                  <svg className="w-full h-full text-white" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 25 L32 75 L48 42 L64 75 L84 25" stroke="url(#logoGrad)" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M42 22 L86 22 L45 74 L89 74" stroke="url(#logoGrad)" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" opacity="0.85" />
-                    <defs>
-                      <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#00E5FF" />
-                        <stop offset="100%" stopColor="#7C3AED" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
+                  {/* Custom Uploaded Logo */}
+                  <img 
+                    src="/Webz_Studio_1774377743040.png" 
+                    alt="WEBZSTUDIO Logo" 
+                    className="w-full h-full object-contain filter brightness-110"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
                 <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00E5FF] opacity-75"></span>

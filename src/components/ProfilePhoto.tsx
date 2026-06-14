@@ -17,8 +17,8 @@ export function ProfilePhoto() {
           {/* Inner clip circular container */}
           <div className="rounded-full overflow-hidden bg-[#050816] w-28 h-28 sm:w-32 sm:h-32 relative">
             <img 
-              src="/images/SmartScale_AI_1774372502692.png" 
-              alt="Lakshay Verma Profile Picture" 
+              src="/Webz_Studio_1774377743040.png" 
+              alt="Lakshay Verma Profile Logo" 
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               referrerPolicy="no-referrer"
               loading="lazy"
