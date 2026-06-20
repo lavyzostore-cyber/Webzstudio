@@ -28,7 +28,8 @@ import {
   Coffee,
   CheckCircle2,
   ChevronDown,
-  MapPin
+  MapPin,
+  ExternalLink
 } from "lucide-react";
 import Header from "./components/Header";
 import { SERVICES, PRICING, PORTFOLIO, TESTIMONIALS, PROCESS_STEPS } from "./data";
@@ -275,73 +276,61 @@ export default function App() {
 
                   {/* Right Column Ambient Mockup Visualizer */}
                   <div className="lg:col-span-5 relative">
-                    <div className="relative bg-[#111827] rounded-[24px] border border-white/10 p-6 md:p-8 shadow-2xl overflow-hidden group">
+                    <div className="relative bg-[#111827]/85 backdrop-blur-xl rounded-[24px] border border-white/10 p-6 md:p-8 shadow-2xl overflow-hidden group">
                       
-                      {/* Geometric Tech Graphics overlay */}
-                      <div className="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
-                        <svg width="120" height="120" viewBox="0 0 100 100">
-                          <circle cx="50" cy="50" r="45" fill="none" stroke="#00E5FF" strokeWidth="1" strokeDasharray="4" />
-                          <circle cx="50" cy="50" r="25" fill="none" stroke="#7C3AED" strokeWidth="1" />
-                        </svg>
+                      {/* Decorative Digital Mesh background */}
+                      <div className="absolute inset-0 bg-radial-gradient from-[#00E5FF]/4 to-transparent opacity-80 pointer-events-none" />
+                      
+                      <div className="flex items-center justify-between mb-6">
+                        <div className="flex items-center space-x-2">
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                          <span className="text-[10.5px] text-[#00E5FF] font-mono uppercase tracking-widest font-black">
+                            Live Studio Environment
+                          </span>
+                        </div>
+                        <span className="text-[9px] text-[#AAB4C8] font-mono border border-white/10 bg-white/5 rounded px-2 py-0.5">
+                          v3.2.0
+                        </span>
                       </div>
 
-                      <div className="flex items-center space-x-2 mb-6">
-                        <div className="w-3 h-3 rounded-full bg-red-500/70"></div>
-                        <div className="w-3 h-3 rounded-full bg-yellow-500/70"></div>
-                        <div className="w-3 h-3 rounded-full bg-green-500/70"></div>
-                        <span className="text-[10px] text-[#AAB4C8] font-mono pl-2">webzstudio_framework.ts</span>
-                      </div>
-
-                      <div className="space-y-4">
-                        <div className="p-4 bg-[#050816]/75 rounded-xl border border-white/5 flex items-center justify-between">
-                          <div className="flex items-center space-x-3">
-                            <TrendingUp className="w-4 h-4 text-[#00E5FF]" />
-                            <span className="text-xs font-semibold text-white">Target Keyword Growth</span>
-                          </div>
-                          <span className="text-xs font-mono font-bold text-green-400">+180% Avg</span>
+                      {/* Headings and Copy for a better way to start the project */}
+                      <div className="space-y-5 text-left">
+                        <div className="space-y-1.5">
+                          <span className="text-[#7C3AED] text-[10px] font-mono uppercase tracking-[0.2em] font-bold block">
+                            WELCOME DEVELOPER &amp; CLIENT
+                          </span>
+                          <h3 className="text-2xl sm:text-3xl font-display font-black text-white leading-tight">
+                            Start Your Luxury Website Build
+                          </h3>
                         </div>
 
-                        <div className="p-4 bg-[#050816]/75 rounded-xl border border-white/5 flex items-center justify-between">
-                          <div className="flex items-center space-x-3">
-                            <Clock className="w-4 h-4 text-[#7C3AED]" />
-                            <span className="text-xs font-semibold text-white">Mobile Speed Response</span>
-                          </div>
-                          <span className="text-xs font-mono font-bold text-[#00E5FF]">0.4 Seconds</span>
-                        </div>
+                        <p className="text-xs sm:text-sm text-[#AAB4C8] leading-relaxed">
+                          Break out of containment! View the fully active client workspace, optimized responsiveness grids, and sub-second rendering live in a standalone browser tab.
+                        </p>
 
-                        <div className="p-4 bg-[#050816]/75 rounded-xl border border-white/5 flex items-center justify-between">
-                          <div className="flex items-center space-x-3">
-                            <Award className="w-4 h-4 text-yellow-400" />
-                            <span className="text-xs font-semibold text-white">Satisfaction Rating</span>
-                          </div>
-                          <span className="text-xs font-mono font-bold text-emerald-400">5.0 Star Elite</span>
-                        </div>
-
-                        {/* Customer trust badge */}
-                        <div className="mt-4 pt-5 border-t border-white/10 flex items-center justify-between">
-                          <div className="flex items-center space-x-2.5">
-                            <div className="relative">
-                              <div className="w-9 h-9 rounded-full bg-[#00E5FF]/20 flex items-center justify-center text-[#00E5FF] font-bold text-xs border border-[#00E5FF]/45">
-                                LV
-                              </div>
-                              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-500 border-2 border-[#111827] rounded-full"></span>
-                            </div>
-                            <div className="text-left">
-                              <h4 className="text-xs font-bold text-white">Consulting Lead active</h4>
-                              <p className="text-[10px] text-[#AAB4C8]">Online via Call &amp; WhatsApp</p>
-                            </div>
-                          </div>
+                        {/* Interactive "Open in New Tab" CTA */}
+                        <div className="pt-2">
                           <a
-                            href="https://wa.me/919350898919?text=Hello%20WEBZSTUDIO,%20I'm%20interested%20in%20a%20modern%20website!"
+                            href="/"
                             target="_blank"
-                            rel="noreferrer"
-                            className="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 text-[10.5px] font-bold px-3 py-2 rounded-lg border border-emerald-500/30 transition-all flex items-center gap-1.5"
+                            rel="noopener noreferrer"
+                            className="w-full relative flex items-center justify-center space-x-3 bg-gradient-to-r from-[#00E5FF] to-[#7C3AED] hover:from-[#00E5FF]/90 hover:to-[#7C3AED]/90 text-black font-display font-black px-6 py-4 rounded-xl text-xs sm:text-sm tracking-wider transition-all duration-300 transform active:scale-[0.98] shadow-[0_0_20px_rgba(0,229,255,0.25)] hover:shadow-[0_0_25px_rgba(0,229,255,0.4)] text-center font-bold"
                           >
-                            <svg className="w-3.5 h-3.5 text-emerald-450 fill-emerald-450" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M12.004 0C5.374 0 0 5.373 0 12.001a11.93 11.93 0 0 0 3.102 8.163L1.085 24l3.966-1.042a11.968 11.968 0 0 0 6.953 2.043c6.633 0 12-5.372 12-12.001C24.004 5.373 18.632 0 12.004 0zm6.985 16.924c-.31.874-1.558 1.583-2.483 1.63-.611.03-1.408.067-3.957-.961-3.238-1.309-5.309-4.577-5.47-4.793-.16-.216-1.282-1.688-1.282-3.22 0-1.533.805-2.285 1.092-2.583.287-.297.625-.371.834-.371.21 0 .42.002.605.009.191.008.448-.073.702.531.258.614.887 2.146.963 2.3.076.155.127.336.026.541-.1.206-.153.336-.307.514-.154.178-.323.396-.462.532-.154.153-.314.322-.136.625.179.303.791 1.29 1.696 2.086 1.168 1.025 2.152 1.343 2.458 1.498.307.155.488.13.668-.073.18-.206.772-.887.978-1.196.206-.307.412-.258.694-.155.283.103 1.8.84 2.112.993.31.155.514.232.592.36.077.13.077.747-.233 1.621z"/>
-                            </svg>
-                            <span>Chat 24/7</span>
+                            <span>LAUNCH IN NEW TAB</span>
+                            <ExternalLink className="w-4 h-4 text-black" />
                           </a>
+                        </div>
+
+                        {/* Fast Boot Specs Checklist */}
+                        <div className="pt-5 border-t border-white/5 grid grid-cols-2 gap-4 text-left">
+                          <div>
+                            <span className="text-[10px] font-mono text-[#AAB4C8] block uppercase tracking-wider">SANDBOX ISOLATION</span>
+                            <span className="text-xs text-white font-bold">Bypassed &amp; Secure</span>
+                          </div>
+                          <div>
+                            <span className="text-[10px] font-mono text-[#AAB4C8] block uppercase tracking-wider">DEVELOPMENT FLUIDITY</span>
+                            <span className="text-xs text-[#00E5FF] font-bold font-mono">100% Native FPS</span>
+                          </div>
                         </div>
                       </div>
 
